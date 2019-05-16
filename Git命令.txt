@@ -1,0 +1,24 @@
+mkdir git
+cd git
+pwd
+
+git init   初始化仓库
+
+git add <file>   
+git commit -m <message>
+
+git status
+git diff
+
+git log
+git log --pretty=oneline
+
+git reset --hard HEAD^     回退到上一个版本
+git reset --hard HEAD~n    回退到上N个版本
+git reflog                 历史记录，方便查看commit id
+git reset --hard ID        回退到指定版本，ID为commit id
+git diff HEAD -- <file>    查看工作区和版本库里面最新版本的区别
+git checkout -- <file>     撤销修改和恢复删除
+
+rm <file>                  删除工作区文件
+git rm <file> & git commit <file>    彻底删除版本库文件
