@@ -50,7 +50,7 @@ git add <file>
 git commit -m <message>
 git checkout master   切换回主线
 
-git merge dev         合并分支代码到主线
+git merge dev         合并分支代码到当前分支
 git branch -d dev     删除分支
 
 
