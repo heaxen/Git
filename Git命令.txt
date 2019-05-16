@@ -22,3 +22,19 @@ git checkout -- <file>     撤销修改和恢复删除
 
 rm <file>                  删除工作区文件
 git rm <file> & git commit <file>    彻底删除版本库文件
+
+1、创建SSH keys
+ssh-keygen -t rsa -C "zhy5205318@sina.com"
+用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥
+
+2、登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+
+添加远程库
+Github创建： create new repos  如：Git
+
+git remote add origin https://github.com/heaxen/Git.git    本地仓库添加到远程仓库
+git push -u origin master / git push origin master        同步文件到远程仓库
+git clone https://github.com/heaxen/Git                    克隆远程仓库到本地
+
+
