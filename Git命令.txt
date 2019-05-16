@@ -37,4 +37,11 @@ git remote add origin https://github.com/heaxen/Git.git    本地仓库添加到
 git push -u origin master / git push origin master         同步文件到远程仓库
 git clone https://github.com/heaxen/Git                    克隆远程仓库到本地
 
+创建分支
+git checkout -b dev   参数-b表示创建并切换
+等价于下面两条命令
+git branch dev
+git checkout dev
+git branch            列出所有分支，当前分支前面会标一个*号
+
 
