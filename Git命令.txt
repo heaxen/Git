@@ -34,7 +34,7 @@ ssh-keygen -t rsa -C "zhy5205318@sina.com"
 Github创建： create new repos  如：Git
 
 git remote add origin https://github.com/heaxen/Git.git    本地仓库添加到远程仓库
-git push -u origin master / git push origin master        同步文件到远程仓库
+git push -u origin master / git push origin master         同步文件到远程仓库
 git clone https://github.com/heaxen/Git                    克隆远程仓库到本地
 
 
