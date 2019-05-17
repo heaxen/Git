@@ -100,3 +100,18 @@ git branch -D feature-vulcan
 git remote  & git remote -v     查看远程库信息
 git push origin master          推送本地master分支代码到远程库
 git push origin dev             推送本地dev分支代码到远程库
+
+git clone https://github.com/heaxen/Git      抓取分支，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆
+git checkout -b dev origin/dev               协作伙伴需要在dev分支上开发，就必须创建远程origin的dev分支到本地
+
+修改后进行推送
+git add <file>
+git commit -m <message>
+git push origin dev
+
+如果其他开发者已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送就会出现冲突
+git pull          把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送
+
+如果git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接
+git branch --set-upstream-to=origin/dev dev   ( git branch --set-upstream-to <branch-name> origin/<branch-name> )
+然后继续git pull，最后再git push
