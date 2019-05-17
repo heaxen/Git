@@ -55,3 +55,25 @@ git branch -d dev     删除分支
 
 git log --graph                                     可以看到分支合并图
 git log --graph --pretty=oneline --abbrev-commit    看分支合并情况
+
+
+
+Bug分支
+有利于解决在dev分支进行开发的同时，既不想提交分支代码，但是又要解决当前分支上的Bug的问题
+
+需求：在master分支修复Bug，当前分支为dev
+git stash                    把当前工作现场‘储藏’起来，等恢复现场之后继续工作
+git checkout master          切换到master分支
+git checkout -b issue-101    在master分支拉取修复Bug的临时分支
+git add <file>               
+git commit -m <message>
+git checkout master
+git merge --no-ff -m "<message>" issue-101     合并分支时，加上--no-ff参数，表示禁用Fast forward，此时就可以用普通模式合并，
+											   合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+git checkout dev                       最后切换到dev分支
+git stash list                         查看之前‘储藏’的工作现场
+git stash apply  &  git stash drop     恢复工作现场方法1，但是恢复后，stash内容并不删除，你需要用git stash drop来删除
+git stash pop                          恢复工作现场方法2，恢复的同时把stash内容也删了
+
+可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
+$ git stash apply stash@{0}
