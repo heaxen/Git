@@ -52,3 +52,6 @@ git checkout master   切换回主线
 
 git merge dev         合并分支代码到当前分支
 git branch -d dev     删除分支
+
+git log --graph                                     可以看到分支合并图
+git log --graph --pretty=oneline --abbrev-commit    看分支合并情况
