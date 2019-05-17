@@ -93,3 +93,10 @@ git checkout dev
 git branch -d feature-vulcan
 feature-vulcan分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的-D参数
 git branch -D feature-vulcan
+
+
+
+协作开发
+git remote  & git remote -v     查看远程库信息
+git push origin master          推送本地master分支代码到远程库
+git push origin dev             推送本地dev分支代码到远程库
