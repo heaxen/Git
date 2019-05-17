@@ -70,10 +70,26 @@ git commit -m <message>
 git checkout master
 git merge --no-ff -m "<message>" issue-101     合并分支时，加上--no-ff参数，表示禁用Fast forward，此时就可以用普通模式合并，
 											   合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+git branch -d issue-101                删除临时分支
 git checkout dev                       最后切换到dev分支
 git stash list                         查看之前‘储藏’的工作现场
 git stash apply  &  git stash drop     恢复工作现场方法1，但是恢复后，stash内容并不删除，你需要用git stash drop来删除
 git stash pop                          恢复工作现场方法2，恢复的同时把stash内容也删了
 
 可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
-$ git stash apply stash@{0}
+git stash apply stash@{0}
+
+
+
+Feature分支
+每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。
+样例：
+git checkout -b feature-vulcan
+git add vulcan.py
+git commit - m "add feature vulcan"
+git checkout dev
+
+准备合并（git merge --no-ff -m "merge feature vulcan" feature-vulcan），但是这个功能需要取消，使用删除命令
+git branch -d feature-vulcan
+feature-vulcan分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的-D参数
+git branch -D feature-vulcan
